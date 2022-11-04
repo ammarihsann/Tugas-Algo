@@ -1,1 +1,0 @@
-# kumpulan tugas algo
