@@ -1,0 +1,140 @@
+#include<iostream>
+using namespace std;
+int main(){
+int p, d, h, u, t, total; 
+
+cout << "=========================PEMBELIAN TIKET TAMAN SAFARI==================== \n";
+cout << "= 1. tiket reguler \t						= \n";
+cout << "= 2. safari malam  \t						= \n";
+cout << "= 3. Safari trek & outbound Rp 150.000/orang dan min reservasi 25 orang = \n";
+cout << "= 4. Behind the scene tour VVIP Rp.1.000.000/pax min 5 pax max 15 pax   = \n";
+cout << "========================================================================= \n";
+cout << "Pilihan tiket anda ? ( 1-4 ) : ";
+cin >> p;
+cout<<endl;
+
+switch (p){
+case 1:
+cout<< "================== \n";	
+cout<< "= 1.Domestik     = \n";
+cout<< "= 2.Inernasional = \n";
+cout<< "================== \n";	
+cout<<"Darimana anda berasal? (1/2) : ";
+cin>>d;
+cout<<endl;
+cout<<"============= \n";	
+cout<<"= 1.weekday = \n";
+cout<<"= 2.weekend = \n";
+cout<<"============= \n";	
+cout<<"Hari apa anda ingin berkunjung (1/2) : ";
+cin>>h;
+cout<<endl;
+cout<<"Masukan umur anda ? : ";
+cin>>u;
+
+cout<<"Berapa tiket yang ingin anda beli ? : ";
+cin>>t;
+// domestik
+if (d==1 && h==1 && u<=5){ // Domestik & weekday & umur < 5
+total = 200000*t; 	
+}
+else if (d==1 && h==1 && u>=6){ // Domestik & weekday & umur > 6
+total = 230000*t; 	
+}
+else if (d==1 && h==2 && u<=5){ // Domestik & weekend & umur < 5
+total = 225000*t; 	
+}
+else if (d==1 && h==2 && u>=6){ // Domestik & weekend & umur > 6
+total = 255000*t;
+}
+// internasional
+else if (d==2 && h==1 && u<=5){ // Internasional & weekday & umur < 5
+total = 350000*t;
+}
+else if (d==2 && h==1 && u>=6){ // Internasional & weekday & umur > 6
+total = 400000*t;
+}
+else if (d==2 && h==2 && u<=5){ // Internasional & weekend & umur < 5
+total = 350000*t;
+}
+else if (d==2 && h==2 && u>=6){ // Internasional & weekend & u > 6
+total = 450000*t;
+}
+else{
+cout << "maaf anda salah input \n";	
+}
+break;
+
+case 2:
+cout<< "================== \n";	
+cout<< "= 1.Domestik     = \n";
+cout<< "= 2.Inernasional = \n";
+cout<< "================== \n";	
+cout<<"Darimana anda berasal? (1/2) : ";
+cin>>d;
+cout<<"Masukan umur anda ? : ";
+cin>>u;
+
+cout<<"Berapa tiket yang ingin anda beli ? : ";
+cin>>t;
+if (u <= 5 && d==1){ // umur < 5 & Domestik
+total = 160000*t; 	
+}
+else if	(u <= 5 && d==2){ // umur < 5 & Internasional
+total = 300000*t; 
+}
+else if	(u>= 6 && d==1){ // umur > 6 & Domestik
+total = 180000*t; 
+}
+else if	(u>= 6 && d==2){ // umur > 6 & Internasional
+total = 350000*t;
+}
+else{
+cout << "maaf anda salah input \n";		
+}
+break;
+
+case 3:
+cout<<"============= \n";	
+cout<<"= 1.weekday = \n";
+cout<<"= 2.weekend = \n";
+cout<<"============= \n";	
+cout<<"Hari apa anda ingin berkunjung (1/2) : ";
+cin>>h;
+cout<<"Berapa tiket yang ingin anda beli ? : ";
+cin>>t;
+total = 150000*t;
+if (t < 25){ // tiket kurang dari 25
+cout << "Maaf, Minimal reservasi 25 0rang";
+return 0;
+}
+else if (t >= 25){ // tiket lebih besar sama dengan 25
+total;
+}
+break;
+case 4:
+cout<<"============= \n";	
+cout<<"= 1.weekday = \n";
+cout<<"= 2.weekend = \n";
+cout<<"============= \n";	
+cout<<"Hari apa anda ingin berkunjung (1/2) : ";
+cin>>h;
+cout<<"Berapa tiket yang ingin anda beli ? : ";
+cin>>t;	
+total = 1000000*t;
+if (t < 5 || t > 15){ // tiket kurang dari 5 / tiket lebih dari 15
+cout << " Maaf, Minimal pembelian 5 pax dan max 15 pax \n";
+return 0;	
+}
+else if (t >= 5 || t <= 15 ){ // tiket lebih besar sama dengan 5 / tiket kurang dari sama dengan 15
+total;	
+}
+break;		
+	
+}
+cout << "================================== \n";
+cout << "Total Harga Tiket Anda : ""Rp."<< total;
+
+	
+return 0;	
+}
